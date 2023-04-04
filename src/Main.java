@@ -24,7 +24,7 @@ import java.util.Scanner;
                 scanner.nextLine();
 
                 switch (choice) {
-                    case 1:
+                    case 1 -> {
                         System.out.print("Enter customer name: ");
                         String name = scanner.nextLine();
                         System.out.print("Enter customer email: ");
@@ -34,8 +34,8 @@ import java.util.Scanner;
                         customer.setEmail(email);
                         bankingApplication.createCustomer(customer);
                         System.out.println("Customer created with ID " + customer.getId());
-                        break;
-                    case 2:
+                    }
+                    case 2 -> {
                         System.out.print("Enter customer ID: ");
                         Long customerId = scanner.nextLong();
                         Customer currentCustomer = bankingApplication.createCurrentAccount(customerId);
@@ -44,27 +44,27 @@ import java.util.Scanner;
                         } else {
                             System.out.println("Current account created for customer " + currentCustomer.getName());
                         }
-                        break;
-                    case 3:
+                    }
+                    case 3 -> {
                         System.out.print("Enter customer ID: ");
                         Long viewCustomerId = scanner.nextLong();
-                       // System.out.println(viewCustomerId+"here");
+                        // System.out.println(viewCustomerId+"here");
                         Optional<Customer> viewCustomer = bankingApplication.getCustomerById(viewCustomerId);
                         if (viewCustomer.isPresent()) {
                             System.out.println(viewCustomer);
-                          //  System.out.println(viewCustomer.toString());
+                            //  System.out.println(viewCustomer.toString());
                         } else {
                             System.out.println("Customer not found");
                         }
-                        break;
-                    case 4:
+                    }
+                    case 4 -> {
                         System.out.println("All customers:");
                         List<Customer> allCustomers = bankingApplication.getAllCustomers();
                         for (Customer c : allCustomers) {
                             System.out.println(c);
                         }
-                        break;
-                    case 5:
+                    }
+                    case 5 -> {
                         System.out.print("Enter customer ID: ");
                         Long balanceCustomerId = scanner.nextLong();
                         Optional<Customer> balanceCustomer = bankingApplication.getCustomerById(balanceCustomerId);
@@ -74,12 +74,9 @@ import java.util.Scanner;
                         } else {
                             System.out.println("Customer not found");
                         }
-                        break;
-                    case 6:
-                        System.out.println("Exiting...");
-                        break;
-                    default:
-                        System.out.println("Invalid choice");
+                    }
+                    case 6 -> System.out.println("Exiting...");
+                    default -> System.out.println("Invalid choice");
                 }
             }
         }

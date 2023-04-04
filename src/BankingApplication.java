@@ -8,7 +8,7 @@ import java.util.Optional;
 public class BankingApplication {
 
     // Define a map to store customer accounts
-    private Map<Long, Customer> customers = new HashMap<>();
+    private final Map<Long, Customer> customers = new HashMap<>();
 
     // Define a method to create a new customer account
     public Customer createCustomer(Customer customer) {
